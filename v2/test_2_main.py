@@ -210,4 +210,4 @@ class TestRootEndpoint:
         assert response.status_code == 200
         data = response.json()
         assert "message" in data
-        assert data["message"] == "Task Manager API"
+        assert data["message"] == "Task Manager"

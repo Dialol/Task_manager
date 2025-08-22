@@ -29,18 +29,25 @@ v2/
 └── README.md # Документация
 ```
 
-### Docker запуск
-
-#### 1. Сборка образа
-
+#### Запуск всего проекта
 ```bash
-docker build -t task-manager .
+# Docker Compose сам соберет образ и запустит все
+docker-compose up --build
+
+# Или если образ уже есть
+docker-compose up
 ```
 
-#### 2. Запуск контейнера
-
+#### Запуск по отдельности
 ```bash
-docker run -p 8000:8000 task-manager
+# Только приложение (с автоматической сборкой)
+docker-compose up app --build
+
+# Только тесты
+docker-compose run test
+
+# Все вместе
+docker-compose up --build
 ```
 
 ## API Endpoints
@@ -65,7 +72,7 @@ Content-Type: application/json
   "description": "Описание задачи",
   "status": "created"
 }
-`
+```
 
 ### Получение задачи по ID
 
